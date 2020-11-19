@@ -1,0 +1,9 @@
+﻿  main.cpp
+D:\project\VS c++project\TANKBATTLE\TANKBATTLE\TANKBATTLE\Bullet.h(33,2): warning C4091: “typedef ”: 没有声明变量时忽略“BulletLink”的左侧
+  正在生成代码
+D:\project\VS c++project\TANKBATTLE\TANKBATTLE\TANKBATTLE\Player.cpp(185): warning C4715: “Player::Is_Collision”: 不是所有的控件路径都返回值
+  122 of 484 functions (25.2%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    14 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  TANKBATTLE.vcxproj -> D:\project\VS c++project\TANKBATTLE\TANKBATTLE\Release\TANKBATTLE.exe
