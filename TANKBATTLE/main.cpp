@@ -27,7 +27,7 @@ int main() {
 		g1.showmap();
 
 		FlushBatchDraw();
-		Sleep(20);
+		Sleep(35);
 		cleardevice();
 	}
 
