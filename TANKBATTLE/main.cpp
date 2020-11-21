@@ -21,16 +21,16 @@ int main() {
 	setaspectratio(4, 4);
 	BeginBatchDraw();
 	g1.showmap();
+	g1.p1.shoot();
 	
 	while (true) {
 		g1.showmap();
+
 		FlushBatchDraw();
 		Sleep(20);
 		cleardevice();
 	}
+
 	
-	
-	
-	
-	_getch();
+	system("pause");
 }

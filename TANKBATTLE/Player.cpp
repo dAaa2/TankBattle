@@ -30,9 +30,8 @@ void Player::Load() {
 }
 
 //根据按下按键重新设置坦克位置
-void Player::Move(Map mappic) {
+void Player::Move(Map mappic, keydown nowkb) {
 	
-	keydown nowkb = InputCheck();
 		switch (nowkb)
 		{
 		case KEY_UP:
@@ -189,8 +188,26 @@ bool Player::Is_Collision(Map mappic) {
 }
 
 //射击函数
-void Player::shoot(BulletLink *BL) {
-	Bullet newbullet(GetCoord_X() + px_size - Bullet_px  / 2, GetCoord_Y(), GetDir());
+void Player::shoot(){
+	Bullet newbullet;
+	switch (GetDir())
+	{
+	case Up:
+		newbullet = Bullet(GetCoord_X() + px_size - Bullet_px / 2, GetCoord_Y(), GetDir());
+		break;
+	case Left:
+		newbullet = Bullet(GetCoord_X(), GetCoord_Y() + px_size - Bullet_px / 2, GetDir());
+		break;
+	case Down:
+		newbullet = Bullet(GetCoord_X() + px_size - Bullet_px / 2, GetCoord_Y() + px_size * 2 - Bullet_px, GetDir());
+		break;
+	case Right:
+		newbullet = Bullet(GetCoord_X() + px_size * 2 - Bullet_px, GetCoord_Y() + px_size - Bullet_px / 2, GetDir());
+		break;
+
+	default:
+		break;
+	}
 	BL->Push(newbullet);
 }
 

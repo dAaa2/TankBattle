@@ -29,7 +29,8 @@ struct BulletLink
     BulletLink():next(nullptr),NewBullet() {}
     void Del_next();//删除当前位置子弹
     void Push(Bullet newbullet);//链尾加一颗子弹
-
+    void show();
+    void move();
 };
 
 

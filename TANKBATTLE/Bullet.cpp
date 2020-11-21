@@ -17,10 +17,10 @@ void Bullet::move() {
 	switch (dir)
 	{
 	case Up:
-		this->SetCoord_Y(Coord_Y - 1);
+		this->SetCoord_Y(Coord_Y - 2);
 		break;
 	case Left:
-		this->SetCoord_X(Coord_X + 2);
+		this->SetCoord_X(Coord_X - 2);
 		break;
 	case Down:
 		this->SetCoord_Y(Coord_Y + 2);
@@ -45,6 +45,24 @@ void BulletLink::Push( Bullet newbullet) {
 	newBL->next = p;
 }
 
+void BulletLink::show()
+{
+	BulletLink* p = this->next;
+	while (p != nullptr) {
+		putimage(p->NewBullet.GetCoord_X(), p->NewBullet.GetCoord_Y(), &p->NewBullet.Bullet_pic[p->NewBullet.GetDir()]);
+		p = p->next;
+	}
+}
+
+void BulletLink::move()
+{
+	BulletLink* p = this->next;
+	while (p != nullptr) {
+		p->NewBullet.move();
+		p = p->next;
+	}
+}
+
 
 
 //每次访问当前下一颗子弹，如果发生碰撞，就释放该内存空间并且删除；
@@ -53,3 +71,4 @@ void BulletLink::Del_next() {
 	this->next = this->next->next;
 	delete p;
 }
+

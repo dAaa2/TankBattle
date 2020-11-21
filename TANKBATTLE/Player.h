@@ -6,7 +6,7 @@ class Player :
 {
 public:
    
-    Player( int Coord_X, int Coord_Y, Direction dir) :Tank(Coord_X, Coord_Y, dir) {
+    Player(int Coord_X, int Coord_Y, Direction dir) :Tank(Coord_X, Coord_Y, dir) {
         Load();
     }
     Player():Tank(16, 16, Up) {
@@ -16,7 +16,7 @@ public:
     void Load();
 
     //ÒÆ¶¯º¯Êý
-    void Move(Map mappic);
+    void Move(Map mappic, keydown nowkb);
 
     //»æÖÆÍ¸Ã÷ÌùÍ¼
     void TransparentImage(IMAGE* dstimg, int x, int y, IMAGE* srcimg, UINT transparentcolor);
@@ -33,6 +33,6 @@ public:
     bool Is_Collision(Map mappic);
 
     //Éä»÷º¯Êý
-    void shoot(BulletLink *BL);
+    void shoot();
 };
 

@@ -31,12 +31,30 @@ void Gamepic::showmap() {
 	}
 	
 	if (p1.Is_keydown()) {
-		p1.Move(mappic);
+		keydown nowkb = p1.InputCheck();
+		switch (nowkb)
+		{
+		case KEY_UP:
+		case KEY_DOWN:
+		case KEY_LEFT:
+		case KEY_RIGHT:
+			p1.Move(mappic, nowkb);
+			break;
+		case KEY_SHOOT:
+			p1.shoot();
+			break;
+		default:
+			break;
+		}
+		p1.BL->move();
+		p1.BL->show();
 		p1.TransparentImage(NULL, p1.GetCoord_X(), p1.GetCoord_Y(), &p1.Tank_pic[0][p1.GetDir()][p1.Get_State_Flag()], BLACK);
 	}
-	else
+	else {
 		p1.TransparentImage(NULL, p1.GetCoord_X(), p1.GetCoord_Y(), &p1.Tank_pic[0][p1.GetDir()][p1.Get_State_Flag()], BLACK);
-
+		p1.BL->move();
+		p1.BL->show();
+	}
 }
 
 
