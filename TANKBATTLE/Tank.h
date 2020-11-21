@@ -1,6 +1,6 @@
 #pragma once
 #include "Unit.h"
-#include"Map.h"
+
 #include"GameSetting.h"
 #include"Bullet.h"
 #pragma comment( lib, "MSIMG32.LIB")

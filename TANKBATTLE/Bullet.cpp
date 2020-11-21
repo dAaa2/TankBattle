@@ -33,6 +33,63 @@ void Bullet::move() {
 	}
 }
 
+bool Bullet::Is_Collision(Map mappic) {
+	Direction nowdir = GetDir();
+	int x_topleft, y_topleft, x_topright, y_topright, x_lowerleft, y_lowerleft, x_lowerright, y_lowerright;
+	bool flag = false;
+	switch (nowdir)
+	{
+	case Up:
+		if (GetCoord_Y() % px_size == 0)
+			flag = true;
+		x_topleft = GetCoord_X() / px_size;
+		y_topleft = GetCoord_Y() / px_size;
+		x_topright = (GetCoord_X() + 16) / px_size - (GetCoord_X() % px_size == 0 ? 1 : 0);
+		y_topright = GetCoord_Y() / px_size;
+		if ((mappic.Map_txt[y_topleft][x_topleft] == 0 || mappic.Map_txt[y_topleft][x_topleft] == 33 || flag) && (mappic.Map_txt[y_topright][x_topright] == 0 || mappic.Map_txt[y_topright][x_topright] == 33 || flag))
+			return true;
+		else return false;
+		break;
+	case Left:
+		if ((GetCoord_X()) % px_size == 0)
+			flag = true;
+		x_topleft = GetCoord_X() / px_size;
+		y_topleft = GetCoord_Y() / px_size;
+		x_lowerleft = GetCoord_X() / px_size;
+		y_lowerleft = (GetCoord_Y() + 16) / px_size - (GetCoord_Y() % px_size == 0 ? 1 : 0);
+		if ((mappic.Map_txt[y_topleft][x_topleft] == 0 || mappic.Map_txt[y_topleft][x_topleft] == 33 || flag) && mappic.Map_txt[y_lowerleft][x_lowerleft] == 0 || mappic.Map_txt[y_lowerleft][x_lowerleft] == 33 || flag)
+			return true;
+		else return false;
+		break;
+	case Down:
+		if (GetCoord_Y() % px_size == 0)
+			flag = true;
+		x_lowerleft = GetCoord_X() / px_size;
+		y_lowerleft = (GetCoord_Y() + 16) / px_size - (GetCoord_Y() % px_size == 0 ? 1 : 0);
+		x_lowerright = (GetCoord_X() + 16) / px_size - (GetCoord_X() % px_size == 0 ? 1 : 0);
+		y_lowerright = (GetCoord_Y() + 16) / px_size - (GetCoord_Y() % px_size == 0 ? 1 : 0);
+		if ((mappic.Map_txt[y_lowerleft][x_lowerleft] == 0 || mappic.Map_txt[y_lowerleft][x_lowerleft] == 33 || flag) && mappic.Map_txt[y_lowerright][x_lowerright] == 0 || mappic.Map_txt[y_lowerright][x_lowerright] == 33 || flag)
+			return true;
+		else return false;
+		break;
+	case Right:
+		if ((GetCoord_X()) % px_size == 0)
+			flag = true;
+		x_topright = (GetCoord_X() + 16) / px_size - (GetCoord_X() % px_size == 0 ? 1 : 0);
+		y_topright = GetCoord_Y() / px_size;
+		x_lowerright = (GetCoord_X() + 16) / px_size;
+		y_lowerright = (GetCoord_Y() + 16) / px_size - (GetCoord_Y() % px_size == 0 ? 1 : 0);
+		if ((mappic.Map_txt[y_lowerright][x_lowerright] == 0 || mappic.Map_txt[y_lowerright][x_lowerright] == 33 || flag) && mappic.Map_txt[y_topright][x_topright] == 0 || mappic.Map_txt[y_topright][x_topright] == 33 || flag)
+			return true;
+		else return false;
+		break;
+	default:
+		return false;
+		break;
+	}
+
+}
+
 
 
 //Á´Î²¼ÓÒ»¿Å×Óµ¯

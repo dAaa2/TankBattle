@@ -1,6 +1,7 @@
 #pragma once
 #include "Unit.h"
 
+
 class Bullet :
     public Unit
 {
@@ -17,7 +18,7 @@ public:
     }
     void move();
     void Load();
-
+    bool Is_Collision(Map mappic);
 };
 
 //子弹链结构，包含一颗子弹和下一颗子弹地址 
@@ -31,6 +32,7 @@ struct BulletLink
     void Push(Bullet newbullet);//链尾加一颗子弹
     void show();
     void move();
+    
 };
 
 

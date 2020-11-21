@@ -1,2 +1,9 @@
-﻿  Player.cpp
+﻿  Bullet.cpp
+  Enemy.cpp
+  Gamepic.cpp
+  Player.cpp
+  Tank.cpp
+  Unit.cpp
+  main.cpp
+  正在生成代码...
   TANKBATTLE.vcxproj -> D:\GitPac\x64\Debug\TANKBATTLE.exe
